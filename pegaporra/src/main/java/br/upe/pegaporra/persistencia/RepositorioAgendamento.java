@@ -10,5 +10,5 @@ public interface RepositorioAgendamento extends CrudRepository<Agendamento, Long
 
 	public Agendamento findByData(Date data);
 	public Agendamento findByHora(Date hora);
-	public Agendamento findById(Long id); // remover
+	//public Agendamento findById(Long id); // remover e substituir por findByOne
 }
