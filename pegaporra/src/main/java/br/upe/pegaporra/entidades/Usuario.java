@@ -12,20 +12,20 @@ public class Usuario {
 
 	private String nome;
 	private String cpf;
-	private String emailUsuario;
-	private String senhaUsuario;
+	private String email;
+	private String senha;
 	private List<Conta> contas;
 	
 	public Usuario() {
 		
 	}
 	
-	public Usuario(String nome, String cpf, String emailUsuario, String senhaUsuario, List<Conta> contas) {
+	public Usuario(String nome, String cpf, String email, String senha, List<Conta> contas) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
-		this.emailUsuario = emailUsuario;
-		this.senhaUsuario = senhaUsuario;
+		this.email = email;
+		this.senha = senha;
 		this.contas = contas;
 	}
 
@@ -46,20 +46,20 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public String getEmailUsuario() {
-		return emailUsuario;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailUsuario(String emailUsuario) {
-		this.emailUsuario = emailUsuario;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getSenhaUsuario() {
-		return senhaUsuario;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setSenhaUsuario(String senhaUsuario) {
-		this.senhaUsuario = senhaUsuario;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	@OneToMany(mappedBy = "usuario", fetch=FetchType.EAGER)
@@ -76,9 +76,9 @@ public class Usuario {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
-		result = prime * result + ((emailUsuario == null) ? 0 : emailUsuario.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + ((senhaUsuario == null) ? 0 : senhaUsuario.hashCode());
+		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		return result;
 	}
 
@@ -96,28 +96,28 @@ public class Usuario {
 				return false;
 		} else if (!cpf.equals(other.cpf))
 			return false;
-		if (emailUsuario == null) {
-			if (other.emailUsuario != null)
+		if (email == null) {
+			if (other.email != null)
 				return false;
-		} else if (!emailUsuario.equals(other.emailUsuario))
+		} else if (!email.equals(other.email))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
 		} else if (!nome.equals(other.nome))
 			return false;
-		if (senhaUsuario == null) {
-			if (other.senhaUsuario != null)
+		if (senha == null) {
+			if (other.senha != null)
 				return false;
-		} else if (!senhaUsuario.equals(other.senhaUsuario))
+		} else if (!senha.equals(other.senha))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [nome=" + nome + ", cpf=" + cpf + ", emailUsuario=" + emailUsuario + ", senhaUsuario="
-				+ senhaUsuario + "]";
+		return "Usuario [nome=" + nome + ", cpf=" + cpf + ", email=" + email + ", senha="
+				+ senha + "]";
 	}
 	
 	

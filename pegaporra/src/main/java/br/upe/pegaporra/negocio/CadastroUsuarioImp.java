@@ -32,8 +32,8 @@ public class CadastroUsuarioImp implements CadastroUsuario{
 	public void atualizar(Usuario u) throws UsuarioInexistenteException {
 		Usuario antigo = buscarCpf(u.getCpf());
 		antigo.setNome(u.getNome());
-		antigo.setSenhaUsuario(u.getSenhaUsuario());
-		antigo.setEmailUsuario(u.getEmailUsuario());
+		antigo.setSenha(u.getSenha());
+		antigo.setEmail(u.getEmail());
 		antigo.setContas(u.getContas());
 		
 		repositorio.save(antigo);

@@ -67,7 +67,7 @@ public class CadastroAgendamentoImp implements CadastroAgendamento{
 	}
 
 	public Agendamento buscarId(Long id) throws AgendamentoInexistenteException {
-		Agendamento a = repositorio.findById(id);
+		Agendamento a = repositorio.findOne(id);
 		if (a == null) {
 			throw new AgendamentoInexistenteException();
 		}

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -60,7 +61,7 @@ public class Agendamento implements Serializable{
 		this.hora = hora;
 	}
 
-	@OneToMany(mappedBy = "agendamento")
+	@OneToMany(mappedBy = "agendamento", fetch=FetchType.EAGER)
 	public List<Post> getPosts() {
 		return posts;
 	}

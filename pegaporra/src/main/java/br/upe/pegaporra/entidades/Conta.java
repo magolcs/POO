@@ -3,6 +3,7 @@ package br.upe.pegaporra.entidades;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,8 +13,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Conta {
 
-	private String emailConta;
-	private String senhaConta;
+	private String email;
+	private String senha;
 	private List<Post> posts;
 	private Long id;
 	private Usuario usuario;
@@ -22,32 +23,32 @@ public class Conta {
 		
 	}
 
-	public Conta(String emailConta, String senhaConta, List<Post> posts, Long id, Usuario usuario) {
+	public Conta(String email, String senha, List<Post> posts, Long id, Usuario usuario) {
 		super();
-		this.emailConta = emailConta;
-		this.senhaConta = senhaConta;
+		this.email = email;
+		this.senha = senha;
 		this.posts = posts;
 		this.id = id;
 		this.usuario = usuario;
 	}
 
-	public String getEmailConta() {
-		return emailConta;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailConta(String emailConta) {
-		this.emailConta = emailConta;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getSenhaConta() {
-		return senhaConta;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setSenhaConta(String senhaConta) {
-		this.senhaConta = senhaConta;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
-	@OneToMany(mappedBy = "conta")
+	@OneToMany(mappedBy = "conta", fetch=FetchType.EAGER)
 	public List<Post> getPosts() {
 		return posts;
 	}
@@ -79,10 +80,10 @@ public class Conta {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((emailConta == null) ? 0 : emailConta.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((posts == null) ? 0 : posts.hashCode());
-		result = prime * result + ((senhaConta == null) ? 0 : senhaConta.hashCode());
+		result = prime * result + ((senha == null) ? 0 : senha.hashCode());
 		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
@@ -96,10 +97,10 @@ public class Conta {
 		if (getClass() != obj.getClass())
 			return false;
 		Conta other = (Conta) obj;
-		if (emailConta == null) {
-			if (other.emailConta != null)
+		if (email == null) {
+			if (other.email != null)
 				return false;
-		} else if (!emailConta.equals(other.emailConta))
+		} else if (!email.equals(other.email))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -111,10 +112,10 @@ public class Conta {
 				return false;
 		} else if (!posts.equals(other.posts))
 			return false;
-		if (senhaConta == null) {
-			if (other.senhaConta != null)
+		if (senha == null) {
+			if (other.senha != null)
 				return false;
-		} else if (!senhaConta.equals(other.senhaConta))
+		} else if (!senha.equals(other.senha))
 			return false;
 		if (usuario == null) {
 			if (other.usuario != null)
@@ -126,7 +127,7 @@ public class Conta {
 
 	@Override
 	public String toString() {
-		return "Conta [emailConta=" + emailConta + ", senhaConta=" + senhaConta +  "posts=" + posts + ", id=" + id + ", usuario=" + usuario + "]";
+		return "Conta [email=" + email + ", senha=" + senha +  "posts=" + posts + ", id=" + id + ", usuario=" + usuario + "]";
 	}
 
 	

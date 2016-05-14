@@ -20,7 +20,7 @@ public class CadastroContaImp implements CadastroConta{
 	@Transactional(rollbackFor = ContaExistenteException.class)
 	public void adcionar(Conta c) throws ContaExistenteException {
 		try {
-			buscarEmail(c.getEmailConta());
+			buscarEmail(c.getEmail());
 			throw new ContaExistenteException();
 		}catch (ContaInexistenteException e) {
 			repositorio.save(c);
@@ -30,9 +30,9 @@ public class CadastroContaImp implements CadastroConta{
 
 	@Transactional(rollbackFor = ContaInexistenteException.class)
 	public void atualizar(Conta c) throws ContaInexistenteException {
-		Conta antigo = buscarEmail(c.getEmailConta());
+		Conta antigo = buscarEmail(c.getEmail());
 		antigo.setPosts(c.getPosts());
-		antigo.setSenhaConta(c.getSenhaConta());
+		antigo.setSenha(c.getSenha());
 		
 		repositorio.save(antigo);
 		
@@ -51,7 +51,7 @@ public class CadastroContaImp implements CadastroConta{
 	}
 
 	public Conta buscarEmail(String email) throws ContaInexistenteException {
-		Conta c = repositorio.findByEmailConta(email);
+		Conta c = repositorio.findByEmail(email);
 		if (c == null) {
 			throw new ContaInexistenteException();
 		}

@@ -6,5 +6,5 @@ import br.upe.pegaporra.entidades.Conta;
 
 public interface RepositorioConta extends CrudRepository<Conta, Long>{
 
-	public Conta findByEmailConta(String email);
+	public Conta findByEmail(String email);
 }
