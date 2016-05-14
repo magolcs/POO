@@ -9,5 +9,6 @@ import br.upe.pegaporra.entidades.Post;
 public interface RepositorioPost extends CrudRepository<Post, Long> {
 
 	public Post findByAgendamento(Agendamento agendamento);
+	public Post findById(Long id);
 	public Post findByConta(Conta conta);
 }

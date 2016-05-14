@@ -52,7 +52,7 @@ public class CadastroPostImp implements CadastroPost{
 	}
 
 	public Post buscarId(Long id) throws PostInexistenteException {
-		Post p = repositorio.findOne(id);
+		Post p = repositorio.findById(id);
 		if (p == null) {
 			throw new PostInexistenteException();
 		}

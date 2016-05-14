@@ -14,7 +14,6 @@
 
 	<context:component-scan base-package="br.upe.pegaporra.ui" />
 	<context:component-scan base-package="br.upe.pegaporra.negocio" />
-	<context:component-scan base-package="br.upe.pegaporra.fachada" />
 
 
 	<mvc:annotation-driven
@@ -44,7 +43,7 @@
 		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
 		<property name="favorPathExtension" value="true" />
 		<property name="ignoreAcceptHeader" value="true" />
-		<property name="defaultContentType" value="application/json" />
+		<property name="defaultContentType" value="text/html" />
 		<property name="useJaf" value="false" />
 		<property name="mediaTypes">
 			<map>
